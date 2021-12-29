@@ -7,6 +7,7 @@ empCheck=$((RANDOM%3));
 isFullTime=1;
 isPartTime=2;
 wagePerHr=20;
+workPerMonth=20;
 
 case $empCheck  in
 
@@ -18,4 +19,4 @@ case $empCheck  in
                            empWorkHr=0;;
 esac
 
-salary=$(( $wagePerHr * $empWorkHr ));
+salary=$(( $wagePerHr * $empWorkHr * $workPerMonth ));
