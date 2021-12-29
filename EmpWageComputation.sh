@@ -8,14 +8,14 @@ isFullTime=1;
 isPartTime=2;
 wagePerHr=20;
 
-if [[ $isFullTime -eq $empCheck ]]
-       then 
-           empWorkHr=10;
-  elif [[ $isPartTime -eq $empCheck ]]
-        then
-              empWorkHr=8;
-  else
-             empWorkHr=0;
-fi
+case $empCheck  in
+
+          $isFullTime)
+                          empWorkHr=10;;
+          $isPartTime)
+                           empWorkHr=8;;
+          *)
+                           empWorkHr=0;;
+esac
 
 salary=$(( $wagePerHr * $empWorkHr ));
