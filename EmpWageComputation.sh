@@ -11,6 +11,8 @@ workHr=100;
 totalEmpHrs=0;
 totalWorkingDays=0;
 
+declare -A dailyWages
+
 function getWorkHrs()
  {
      
@@ -51,10 +53,12 @@ while [[ $totalEmpHrs -lt workHr   &&  $totalWorkingDays -lt $workPerMonth ]]
              empCheck=$((RANDOM%3));
              empWorkHr="$( getWorkHrs $empCheck )"
              totalEmpHrs=$(( $totalEmpHrs + empWorkHr ));
-             dailyWages[$totalWorkingDays]=$( getEmpWage $empWorkHr )
+             dailyWages["Day "$totalWorkingDays]=$( getEmpWage $empWorkHr )
 
 done
 
 echo "Daily Wage = " ${dailyWages[@]};
+echo ${!dailyWages[@]};
 
 TotalSalary=$(( $wagePerHr * $totalEmpHrs * $workPerMonth ));
+echo "Total Wage= " $TotalSalary;
