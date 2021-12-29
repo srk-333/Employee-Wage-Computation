@@ -5,10 +5,12 @@ echo "Welcome to employee Wage Computation program "
 empCheck=$((RANDOM%2));
 
 isPresent=1;
+wagePerHr=20;
+empWorkHr=8;
 
 if [[ $isPresent -eq $empCheck ]]
   then 
-     echo "Emp is present";
+      salary=$(( $wagePerHr * $empWorkHr ));
   else
-     echo "Emp is not present";
+      salary=0;
 fi
